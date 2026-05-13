@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Lucas Zacarias | Vereador de Santo André</title>
+    <meta name="description" content="Lucas Zacarias - Vereador de Santo André. Pautas de Mobilidade Sustentável, Saúde, Educação e Segurança. Atendimento à população.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Libre+Baskerville:ital,wght@0,700;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde: #009739;
+            --verde-escuro: #006b2a;
+            --amarelo: #ffdf00;
+            --azul: #002776;
+            --azul-claro: #0f4fa8;
+            --azul-suave: #e8f0fb;
+            --branco: #ffffff;
+            --fundo: #f4f7fb;
+            --fundo-escuro: #0b1f3f;
+            --texto: #15243a;
+            --texto-suave: #5f6f84;
+            --borda: rgba(0, 39, 118, 0.1);
+            --sombra: 0 24px 60px -28px rgba(0, 39, 118, 0.28);
+            --sombra-card: 0 16px 40px -24px rgba(15, 36, 58, 0.22);
+            --largura: 1180px;
+            --gutter: clamp(1.25rem, 3vw, 2.5rem);
+            --raio: 20px;
+            --raio-sm: 14px;
+            --header-height: 84px;
+            --patria-height: 4px;
+            --hero-viewport: calc(100svh - var(--header-height) - var(--patria-height));
+            --title-display: clamp(2.8rem, 5vw, 4.4rem);
+            --title-display-desktop: clamp(3.6rem, 5.2vw, 6rem);
+            --section-edge: clamp(2rem, 4.5vw, 5rem);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sora', system-ui, sans-serif;
+            font-weight: 400;
+            color: var(--texto);
+            background: var(--fundo);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .patria-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--verde) 0%, var(--verde) 33%, var(--amarelo) 33%, var(--amarelo) 66%, var(--azul) 66%, var(--azul) 100%);
+        }
+
+        .shell {
+            width: min(var(--largura), calc(100% - (var(--gutter) * 2)));
+            margin-inline: auto;
+        }
+
+        .display {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--azul-claro);
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 28px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--verde), var(--amarelo));
+            border-radius: 999px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 48px;
+            padding: 0.85rem 1.55rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .btn:hover,
+        .btn:focus-visible {
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--azul), var(--azul-claro));
+            color: var(--branco);
+            box-shadow: 0 14px 28px -16px rgba(0, 39, 118, 0.65);
+        }
+
+        .btn-secondary {
+            background: var(--branco);
+            color: var(--azul);
+            border-color: var(--borda);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus-visible {
+            border-color: rgba(0, 39, 118, 0.22);
+            box-shadow: var(--sombra-card);
+        }
+
+        .btn-light {
+            background: var(--branco);
+            color: var(--azul);
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .site-header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding-inline: var(--gutter);
+            min-height: 84px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.95rem;
+            text-decoration: none;
+        }
+
+        .isotipo {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        .brand-name {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--azul);
+        }
+
+        .brand-role {
+            display: block;
+            margin-top: 0.15rem;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+        }
+
+        .site-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+        }
+
+        .site-nav a {
+            padding: 0.65rem 0.95rem;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+            border-radius: 999px;
+            transition: color 0.2s ease, background 0.2s ease;
+        }
+
+        .site-nav a:hover,
+        .site-nav a:focus-visible {
+            color: var(--azul);
+            background: var(--azul-suave);
+            outline: none;
+        }
+
+        .site-nav .btn {
+            margin-left: 0.35rem;
+        }
+
+        .hero {
+            position: relative;
+            padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
+            background: var(--branco);
+            overflow: hidden;
+        }
+
+        .hero-backdrop {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .hero-watermark {
+            position: absolute;
+            left: clamp(0.5rem, 3vw, 3rem);
+            top: 50%;
+            width: min(34vw, 360px);
+            transform: translateY(-50%);
+            opacity: 0.08;
+            color: var(--azul);
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            gap: clamp(2rem, 4vw, 4rem);
+            align-items: center;
+        }
+
+        .hero-copy {
+            max-width: 38rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-copy-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .hero-role {
+            margin-bottom: 1rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+        }
+
+        .hero-name {
+            margin-bottom: 0.75rem;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: clamp(3.4rem, 6.2vw, 5.8rem);
+            font-weight: 700;
+            line-height: 0.92;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-name-primary,
+        .hero-name-accent {
+            display: block;
+        }
+
+        .hero-name-primary {
+            color: var(--azul);
+        }
+
+        .hero-name-accent {
+            color: var(--verde);
+        }
+
+        .hero-byline {
+            margin-bottom: 1.5rem;
+            font-family: 'Sora', system-ui, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+        }
+
+        .hero-quote {
+            margin: 0 0 1.25rem;
+            max-width: 34rem;
+            font-family: 'Sora', system-ui, sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.7;
+            color: #4d5d73;
+        }
+
+        .hero-signature {
+            margin-bottom: 2rem;
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2.1rem, 3.6vw, 3rem);
+            font-weight: 600;
+            line-height: 1;
+            color: var(--verde-escuro);
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-height: 460px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1.5rem, 4vh, 3rem) clamp(0.75rem, 2vw, 1.5rem);
+        }
+
+        .hero-visual-stage {
+            position: relative;
+            width: min(100%, 640px);
+            min-height: 420px;
+        }
+
+        .hero-flag {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            z-index: 0;
+            width: min(96%, 540px);
+            height: auto;
+            transform: translate(-50%, -50%) rotate(-7deg);
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .hero-portrait {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            z-index: 1;
+            width: min(78%, 460px);
+            margin: 0;
+            transform: translateY(-50%);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 28px 56px -24px rgba(0, 39, 118, 0.3);
+        }
+
+        .hero-portrait img {
+            width: 100%;
+            height: auto;
+            max-height: min(64vh, 640px);
+            object-fit: cover;
+            object-position: center 12%;
+            display: block;
+        }
+
+        .section-canvas {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding-inline: var(--gutter);
+        }
+
+        .videos-section {
+            background: var(--branco);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .videos-section .section-title {
+            font-size: clamp(2.8rem, 5vw, 4.4rem);
+            line-height: 0.98;
+        }
+
+        .video-card {
+            width: 100%;
+            max-width: min(1140px, 100%);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: var(--raio);
+            overflow: hidden;
+            background: var(--fundo);
+            border: 1px solid var(--borda);
+            box-shadow: var(--sombra-card);
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-caption {
+            margin-top: 1rem;
+            text-align: center;
+            color: var(--texto-suave);
+        }
+
+        .video-link {
+            display: inline-flex;
+            margin: 0.85rem auto 0;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--azul-claro);
+            text-decoration: none;
+        }
+
+        .video-link:hover,
+        .video-link:focus-visible {
+            text-decoration: underline;
+            outline: none;
+        }
+
+        img[data-lazy] {
+            opacity: 0;
+            transition: opacity 0.45s ease;
+        }
+
+        img[data-lazy].is-loaded {
+            opacity: 1;
+        }
+
+        .mandato-band {
+            padding: clamp(2.5rem, 5vw, 4rem) 0;
+            background: linear-gradient(135deg, #0d3f8d 0%, #0a2f66 52%, #0a5a31 100%);
+            color: var(--branco);
+        }
+
+        .mandato-band-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            gap: clamp(2rem, 4vw, 3.5rem);
+            align-items: center;
+        }
+
+        .mandato-band h2 {
+            font-size: var(--title-display);
+            line-height: 0.98;
+            margin-bottom: 1rem;
+        }
+
+        .mandato-band p {
+            color: rgba(255, 255, 255, 0.82);
+            max-width: 30rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .mandato-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .mandato-item {
+            padding: 1.15rem 1.2rem;
+            border-radius: var(--raio-sm);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .mandato-item strong {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.35rem;
+        }
+
+        .mandato-item span {
+            display: block;
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .section {
+            padding: clamp(3rem, 6vw, 5rem) 0;
+        }
+
+        .section-head {
+            max-width: 42rem;
+            margin: 0 auto 2.75rem;
+            text-align: center;
+        }
+
+        .section-head .eyebrow {
+            justify-content: center;
+            margin-bottom: 0.9rem;
+        }
+
+        .section-title {
+            font-size: var(--title-display);
+            line-height: 0.98;
+            color: var(--azul);
+            margin-bottom: 0.85rem;
+        }
+
+        .section-subtitle {
+            color: var(--texto-suave);
+            font-size: 1rem;
+        }
+
+        .pautas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .pauta-card {
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            padding: 0 0 1.7rem;
+            box-shadow: var(--sombra-card);
+            min-height: 100%;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .pauta-media {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            margin-bottom: 1.15rem;
+        }
+
+        .pauta-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .pauta-card:hover .pauta-media img {
+            transform: scale(1.04);
+        }
+
+        .pauta-card-body {
+            padding: 0 1.5rem;
+        }
+
+        .pauta-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra);
+        }
+
+        .pauta-index {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 1.15rem;
+            background: var(--azul-suave);
+            color: var(--azul);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .pauta-card h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--azul);
+            margin-bottom: 0.75rem;
+        }
+
+        .pauta-card p {
+            color: var(--texto-suave);
+            font-size: 0.94rem;
+        }
+
+        .bio-section {
+            background: var(--branco);
+            border-block: 1px solid var(--borda);
+        }
+
+        .bio-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            gap: clamp(2rem, 4vw, 3.5rem);
+            align-items: start;
+        }
+
+        .bio-intro {
+            padding: 0;
+            border-radius: var(--raio);
+            background: linear-gradient(180deg, var(--fundo), var(--branco));
+            border: 1px solid var(--borda);
+            overflow: hidden;
+        }
+
+        .bio-photo {
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+        }
+
+        .bio-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+        }
+
+        .bio-intro-copy {
+            padding: 1.5rem;
+        }
+
+        .bio-intro h2 {
+            font-size: var(--title-display);
+            line-height: 0.98;
+            color: var(--azul);
+            margin-bottom: 0.85rem;
+        }
+
+        .bio-intro p {
+            color: var(--texto-suave);
+        }
+
+        .bio-columns {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .bio-block h3 {
+            font-size: 0.92rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--azul);
+            margin-bottom: 1rem;
+        }
+
+        .bio-block p {
+            color: var(--texto-suave);
+            margin-bottom: 1rem;
+        }
+
+        .bio-block strong {
+            color: var(--texto);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .stat-item {
+            padding: 1.35rem 1rem;
+            border-radius: var(--raio-sm);
+            text-align: center;
+            background: var(--fundo);
+            border: 1px solid var(--borda);
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--azul);
+            margin-bottom: 0.35rem;
+        }
+
+        .stat-label {
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+        }
+
+        .district-section {
+            background: linear-gradient(180deg, var(--fundo), var(--branco));
+        }
+
+        .district-panel {
+            padding: 0;
+            border-radius: calc(var(--raio) + 4px);
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            box-shadow: var(--sombra-card);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .district-visual {
+            aspect-ratio: 21 / 9;
+            overflow: hidden;
+        }
+
+        .district-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .district-content {
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+        }
+
+        .district-panel h3 {
+            font-size: var(--title-display);
+            line-height: 0.98;
+            color: var(--azul);
+            margin-bottom: 0.85rem;
+        }
+
+        .district-list {
+            color: var(--texto-suave);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .patria-divider {
+            width: 88px;
+            height: 4px;
+            margin: 0 auto 1.25rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--verde), var(--amarelo), var(--azul));
+        }
+
+        .district-highlight {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.15rem;
+            border-radius: 999px;
+            background: rgba(255, 223, 0, 0.16);
+            color: var(--texto);
+            font-size: 0.94rem;
+        }
+
+        .form-section {
+            background: var(--branco);
+            border-block: 1px solid var(--borda);
+        }
+
+        .form-wrap {
+            width: 100%;
+        }
+
+        .form-wrap h3 {
+            font-size: var(--title-display);
+            line-height: 0.98;
+            color: var(--azul);
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .form-intro {
+            text-align: center;
+            color: var(--texto-suave);
+            margin-bottom: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.15rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--azul);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--borda);
+            border-radius: 14px;
+            background: var(--branco);
+            color: var(--texto);
+            font: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: rgba(0, 39, 118, 0.28);
+            box-shadow: 0 0 0 4px rgba(0, 39, 118, 0.08);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 132px;
+        }
+
+        .form-actions {
+            margin-top: 1.75rem;
+            text-align: center;
+        }
+
+        .alert {
+            display: none;
+            margin-bottom: 1.25rem;
+            padding: 1rem 1.1rem;
+            border-radius: 14px;
+            font-size: 0.95rem;
+        }
+
+        .alert-success {
+            background: rgba(0, 151, 57, 0.1);
+            color: var(--verde-escuro);
+            border-left: 4px solid var(--verde);
+        }
+
+        .transparency-panel {
+            padding: 1.5rem 1.75rem;
+            border-radius: var(--raio);
+            background: linear-gradient(180deg, var(--branco), var(--fundo));
+            border: 1px solid var(--borda);
+            text-align: center;
+            color: var(--texto-suave);
+        }
+
+        .transparency-panel strong {
+            color: var(--azul);
+        }
+
+        .site-footer {
+            background: var(--fundo-escuro);
+            color: rgba(255, 255, 255, 0.84);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 0.8fr));
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand p {
+            margin-top: 0.85rem;
+            max-width: 24rem;
+            color: rgba(255, 255, 255, 0.68);
+            font-size: 0.92rem;
+        }
+
+        .demo-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            background: var(--amarelo);
+            color: var(--azul);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.9rem;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--branco);
+        }
+
+        .footer-column h4 {
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.52);
+            margin-bottom: 0.9rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.92rem;
+        }
+
+        .footer-column a:hover,
+        .footer-column a:focus-visible {
+            color: var(--amarelo);
+            outline: none;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.25rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.58);
+        }
+
+        .footer-credit a {
+            color: var(--amarelo);
+            text-decoration: none;
+        }
+
+        .footer-credit a:hover,
+        .footer-credit a:focus-visible {
+            text-decoration: underline;
+            outline: none;
+        }
+
+        @media (min-width: 1025px) {
+            .section-canvas {
+                padding-left: var(--section-edge);
+                padding-right: var(--section-edge);
+            }
+
+            .site-header-inner {
+                padding-left: var(--section-edge);
+                padding-right: var(--section-edge);
+            }
+
+            .section-canvas .section-head {
+                max-width: min(48rem, 52%);
+                margin: 0 0 2.75rem;
+                text-align: left;
+            }
+
+            .section-canvas .section-head .eyebrow {
+                justify-content: flex-start;
+            }
+
+            .section-canvas .section-title,
+            .mandato-band h2,
+            .bio-intro h2,
+            .district-panel h3,
+            .form-wrap h3 {
+                font-size: var(--title-display-desktop);
+            }
+
+            .videos-section .section-title {
+                font-size: clamp(3.6rem, 5.2vw, 6rem);
+            }
+
+            .video-card {
+                max-width: min(1180px, 100%);
+            }
+
+            .mandato-band-grid {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+                gap: clamp(1.5rem, 2.5vw, 3rem);
+            }
+
+            .mandato-band p {
+                max-width: 36rem;
+            }
+
+            .mandato-list {
+                width: 100%;
+                gap: 1.25rem;
+            }
+
+            .mandato-item {
+                padding: 1.35rem 1.45rem;
+            }
+
+            .pautas-grid {
+                gap: 1.5rem;
+            }
+
+            .bio-grid {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+                gap: clamp(1.5rem, 2.5vw, 3rem);
+            }
+
+            .district-panel,
+            .transparency-panel {
+                width: 100%;
+            }
+
+            .form-wrap {
+                max-width: none;
+                width: 100%;
+            }
+
+            .form-wrap h3,
+            .form-intro {
+                text-align: left;
+            }
+
+            .form-intro {
+                max-width: 42rem;
+            }
+
+            .district-content {
+                text-align: left;
+            }
+
+            .district-content .patria-divider {
+                margin-left: 0;
+                margin-right: auto;
+            }
+
+            .hero {
+                min-height: var(--hero-viewport);
+                padding: 0;
+                display: flex;
+                align-items: stretch;
+                overflow: hidden;
+            }
+
+            .hero-grid {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+                gap: clamp(1.5rem, 2.5vw, 3rem);
+                min-height: var(--hero-viewport);
+                align-items: stretch;
+            }
+
+            .hero-copy {
+                max-width: none;
+                padding: clamp(2rem, 4.5vh, 3.5rem) clamp(1.5rem, 2.5vw, 2.5rem) clamp(2rem, 4.5vh, 3.5rem) clamp(2rem, 4.5vw, 5rem);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-self: stretch;
+            }
+
+            .hero-copy-inner {
+                width: min(100%, 40rem);
+            }
+
+            .hero-role {
+                font-size: 0.8rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .hero-name {
+                font-size: clamp(4.2rem, 6.4vw, 7rem);
+                margin-bottom: 1.25rem;
+            }
+
+            .hero-quote {
+                font-size: clamp(1.15rem, 1.55vw, 1.45rem);
+                max-width: 36rem;
+                margin-bottom: 1.75rem;
+            }
+
+            .hero-signature {
+                font-size: clamp(2.4rem, 3.8vw, 3.2rem);
+                margin-bottom: 2.25rem;
+            }
+
+            .hero-visual {
+                min-height: 0;
+                height: 100%;
+                align-self: stretch;
+                padding: clamp(2rem, 5vh, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
+            }
+
+            .hero-visual-stage {
+                width: min(100%, 700px);
+                min-height: 460px;
+            }
+
+            .hero-flag {
+                width: min(100%, 600px);
+                top: 50%;
+            }
+
+            .hero-portrait {
+                width: min(80%, 500px);
+                right: clamp(0rem, 1vw, 1rem);
+            }
+
+            .hero-portrait img {
+                max-height: min(68vh, 680px);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .mandato-band-grid,
+            .bio-grid,
+            .pautas-grid,
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                width: min(var(--largura), calc(100% - (var(--gutter) * 2)));
+                margin-inline: auto;
+            }
+
+            .section-canvas {
+                width: min(var(--largura), calc(100% - (var(--gutter) * 2)));
+                margin-inline: auto;
+            }
+
+            .hero-visual {
+                min-height: 360px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .site-header-inner {
+                flex-direction: column;
+                justify-content: center;
+                padding-block: 1rem;
+                min-height: auto;
+            }
+
+            .site-nav {
+                justify-content: center;
+            }
+
+            .site-nav .btn {
+                margin-left: 0;
+            }
+
+            .mandato-list,
+            .form-grid,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="patria-bar" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="#" class="brand" aria-label="Lucas Zacarias, vereador de Santo André">
+                <svg class="isotipo" viewBox="0 0 52 52" role="img" aria-label="Isotipo Lucas Zacarias">
+                    <rect width="52" height="52" rx="14" fill="#002776"/>
+                    <path d="M14 38V14h8.2c5.4 0 8.8 2.8 8.8 7.4 0 3.1-1.6 5.4-4.2 6.5l5.8 10.1h-6.4l-5-8.8H20.2v8.8H14zm6.2-13.4h1.8c2.4 0 3.8-1.1 3.8-3.1s-1.4-3.1-3.8-3.1h-1.8v6.2z" fill="#ffffff"/>
+                    <circle cx="39" cy="15" r="5" fill="#009739"/>
+                    <path d="M35 30h12v4H35z" fill="#ffdf00"/>
+                </svg>
+                <span>
+                    <span class="brand-name">Lucas Zacarias</span>
+                    <span class="brand-role">Vereador de Santo André</span>
+                </span>
+            </a>
+            <nav class="site-nav" aria-label="Navegação principal">
+                <a href="#">Início</a>
+                <a href="#pautas">Pautas</a>
+                <a href="#biografia">Biografia</a>
+                <a href="#demandas" class="btn btn-primary">Fale comigo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-backdrop" aria-hidden="true">
+                <svg class="hero-watermark" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M40 180V70h28c18 0 30 9 30 24 0 10-5 18-14 22l19 34h-22l-17-30h-12v30H40zm21-45h6c8 0 13-4 13-11s-5-11-13-11h-6v22z" fill="currentColor"/>
+                    <path d="M120 180V70h52v18h-34v24h30v18h-30v34h-18z" fill="currentColor"/>
+                    <path d="M188 180V70h18v78c0 14 6 22 17 22s17-8 17-22V70h18v80c0 26-15 42-35 42s-35-16-35-42z" fill="currentColor"/>
+                    <path d="M20 40h280v8H20z" fill="currentColor"/>
+                    <path d="M30 52h240v6H30z" fill="currentColor"/>
+                    <path d="M48 64h204v6H48z" fill="currentColor"/>
+                    <path d="M70 76h160v6H70z" fill="currentColor"/>
+                    <path d="M96 88h108v6H96z" fill="currentColor"/>
+                </svg>
+            </div>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <div class="hero-copy-inner">
+                        <p class="hero-role">Mandato ativo 2025-2028</p>
+                        <h1 class="hero-name">
+                            <span class="hero-name-primary">Santo</span>
+                            <span class="hero-name-accent">André</span>
+                        </h1>
+                        <p class="hero-byline">Lucas Zacarias · Vereador</p>
+                        <blockquote class="hero-quote">
+                            — Trabalhando por uma cidade mais justa e humana, com mobilidade sustentável, saúde básica, educação de qualidade e segurança cidadã, diálogo direto com a população e transparência total.
+                        </blockquote>
+                        <p class="hero-signature">Lucas Zacarias</p>
+                        <div class="hero-actions">
+                            <a href="#demandas" class="btn btn-primary">Enviar demanda do bairro</a>
+                            <a href="#pautas" class="btn btn-secondary">Conheça as pautas</a>
+                        </div>
+                    </div>
+                </div>
+                <aside class="hero-visual" aria-label="Retrato de Lucas Zacarias">
+                    <div class="hero-visual-stage">
+                        <svg class="hero-flag" viewBox="0 0 900 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="900" height="600" rx="18" fill="#009739"/>
+                            <polygon points="450,90 810,300 450,510 90,300" fill="#ffdf00"/>
+                            <circle cx="450" cy="300" r="118" fill="#002776"/>
+                        </svg>
+                        <div class="hero-portrait">
+                            <img data-lazy src="assets/images/lucas-zacarias-hero.png" alt="Retrato de Lucas Zacarias, vereador de Santo André." width="960" height="1200" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="videos" class="section videos-section" aria-labelledby="videos-title">
+            <div class="shell">
+                <div class="section-head">
+                    <span class="eyebrow">Gabinete digital</span>
+                    <h2 id="videos-title" class="display section-title">Vídeos</h2>
+                    <p class="section-subtitle">Vídeo de apresentação do mandato e da atuação legislativa.</p>
+                </div>
+                <div class="video-card">
+                    <div class="video-frame">
+                        <iframe
+                            data-lazy-src="https://www.youtube.com/watch?v=8Iw8_UZ2A5g"
+                            title="Vídeo de apresentação do mandato"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                    <p class="video-caption">Vídeo de apresentação do mandato.</p>
+                    <a class="video-link" href="https://www.youtube.com/watch?v=ysz5S6PUM-U" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="mandato-band" aria-labelledby="mandato-title">
+            <div class="mandato-band-grid section-canvas">
+                <div>
+                    <span class="eyebrow" style="color: rgba(255,255,255,0.82);">Compromissos</span>
+                    <h2 id="mandato-title" class="display section-title">O que orienta a atuação no legislativo</h2>
+                    <p>
+                        Eixos que guiam meu trabalho no legislativo, com foco em atendimento à população,
+                        participação popular e transparência total.
+                    </p>
+                    <a href="#demandas" class="btn btn-light">Enviar demanda do bairro</a>
+                </div>
+                <div class="mandato-list">
+                    <div class="mandato-item">
+                        <strong>Mobilidade sustentável</strong>
+                        <span>Ciclovias, calçadas acessíveis, transporte público eficiente e integração com trens.</span>
+                    </div>
+                    <div class="mandato-item">
+                        <strong>Saúde básica</strong>
+                        <span>Mais UBS, redução de filas, telemedicina e atendimento humanizado nas unidades.</span>
+                    </div>
+                    <div class="mandato-item">
+                        <strong>Educação</strong>
+                        <span>Escolas em tempo integral, valorização de professores e tecnologia nas salas de aula.</span>
+                    </div>
+                    <div class="mandato-item">
+                        <strong>Segurança cidadã</strong>
+                        <span>Iluminação pública, câmeras de monitoramento e programas de prevenção à violência.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pautas" class="section">
+            <div class="section-canvas">
+                <div class="section-head">
+                    <span class="eyebrow">Compromissos</span>
+                    <h2 class="display section-title">Pautas prioritárias</h2>
+                    <p class="section-subtitle">Eixos que orientam a atuação legislativa e o atendimento à população.</p>
+                </div>
+                <div class="pautas-grid">
+                    <article class="pauta-card">
+                        <figure class="pauta-media">
+                            <img data-lazy src="assets/images/pauta-mobilidade.png" alt="Ciclovia urbana representando mobilidade sustentável." width="640" height="400" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="pauta-card-body">
+                            <div class="pauta-index">01</div>
+                            <h3>Mobilidade sustentável</h3>
+                            <p>Ciclovias, calçadas acessíveis, transporte público eficiente e integração com trens.</p>
+                        </div>
+                    </article>
+                    <article class="pauta-card">
+                        <figure class="pauta-media">
+                            <img data-lazy src="assets/images/pauta-saude.png" alt="Unidade básica de saúde com atendimento à população." width="640" height="400" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="pauta-card-body">
+                            <div class="pauta-index">02</div>
+                            <h3>Saúde básica</h3>
+                            <p>Mais UBS, redução de filas, telemedicina e atendimento humanizado nas unidades.</p>
+                        </div>
+                    </article>
+                    <article class="pauta-card">
+                        <figure class="pauta-media">
+                            <img data-lazy src="assets/images/pauta-educacao.png" alt="Sala de aula moderna representando educação de qualidade." width="640" height="400" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="pauta-card-body">
+                            <div class="pauta-index">03</div>
+                            <h3>Educação</h3>
+                            <p>Escolas em tempo integral, valorização de professores e tecnologia nas salas de aula.</p>
+                        </div>
+                    </article>
+                    <article class="pauta-card">
+                        <figure class="pauta-media">
+                            <img data-lazy src="assets/images/pauta-seguranca.png" alt="Rua residencial bem iluminada representando segurança cidadã." width="640" height="400" loading="lazy" decoding="async">
+                        </figure>
+                        <div class="pauta-card-body">
+                            <div class="pauta-index">04</div>
+                            <h3>Segurança cidadã</h3>
+                            <p>Iluminação pública, câmeras de monitoramento e programas de prevenção à violência.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="biografia" class="section bio-section">
+            <div class="bio-grid section-canvas">
+                <div class="bio-intro">
+                    <figure class="bio-photo">
+                        <img data-lazy src="assets/images/lucas-zacarias-bio.png" alt="Lucas Zacarias em atendimento à população nos bairros de Santo André." width="800" height="1000" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="bio-intro-copy">
+                        <span class="eyebrow">Biografia</span>
+                        <h2 class="display section-title">Trajetória, legado e atuação</h2>
+                    </div>
+                </div>
+                <div class="bio-columns">
+                    <div class="bio-block">
+                        <h3>Trajetória política</h3>
+                        <p>
+                            <strong>Lucas Zacarias</strong> é vereador de Santo André com mandato focado em
+                            <strong>mobilidade sustentável, participação popular e transparência</strong>.
+                            Herdeiro de um legado familiar de serviço público, une tradição e inovação.
+                        </p>
+                        <p>
+                            Formado em <strong>Gestão Ambiental</strong> e pós-graduado em <strong>Petróleo e Gás</strong>,
+                            traz uma visão técnica para os problemas da cidade. Sua base eleitoral é forte na
+                            <strong>Vila Palmares</strong>, com atuação em toda Santo André.
+                        </p>
+                    </div>
+                    <div class="bio-block">
+                        <h3>Legado e atuação</h3>
+                        <p>
+                            Projetos de lei aprovados nas áreas de meio ambiente, incentivo a ciclovias e
+                            transparência de gastos públicos. Participa ativamente das comissões de
+                            <strong>Saúde e Educação</strong>.
+                        </p>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label">Projetos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">Bairros atendidos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">2º</div>
+                                <div class="stat-label">Mandato</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section district-section" aria-labelledby="district-title">
+            <div class="section-canvas">
+                <div class="district-panel">
+                    <figure class="district-visual">
+                        <img data-lazy src="assets/images/bairros-santo-andre.png" alt="Vista aérea de bairros de Santo André com atendimento prioritário." width="1280" height="548" loading="lazy" decoding="async">
+                    </figure>
+                    <div class="district-content">
+                        <h3 id="district-title" class="display section-title">Bairros com atendimento prioritário</h3>
+                        <p class="district-list">Vila Palmares · Centro · Jardim · Utinga · Vila Assunção · Parque das Nações</p>
+                        <div class="patria-divider" aria-hidden="true"></div>
+                        <p class="district-highlight">Destaque para Vila Palmares, base eleitoral e região com demandas ativas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demandas" class="section form-section">
+            <div class="form-wrap section-canvas">
+                <h3 class="display section-title">Fale com seu vereador</h3>
+                <p class="form-intro">
+                    Reporte problemas, sugira projetos ou solicite uma visita ao gabinete.
+                </p>
+
+                <div id="formAlert" class="alert" role="status" aria-live="polite"></div>
+
+                <form id="demandForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome completo *</label>
+                            <input type="text" id="nome" name="nome" required autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone (WhatsApp)</label>
+                            <input type="tel" id="telefone" name="telefone" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="bairro">Bairro *</label>
+                            <select id="bairro" name="bairro" required>
+                                <option value="">Selecione</option>
+                                <option>Vila Palmares</option>
+                                <option>Centro</option>
+                                <option>Jardim</option>
+                                <option>Utinga</option>
+                                <option>Vila Assunção</option>
+                                <option>Parque das Nações</option>
+                                <option>Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo">Tipo de demanda *</label>
+                            <select id="tipo" name="tipo" required>
+                                <option value="">Selecione</option>
+                                <option>Problema no bairro (infraestrutura, iluminação)</option>
+                                <option>Sugestão de projeto de lei</option>
+                                <option>Solicitar audiência ou visita</option>
+                                <option>Elogio / Apoio</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="urgencia">Urgência *</label>
+                            <select id="urgencia" name="urgencia" required>
+                                <option>Baixa</option>
+                                <option>Média</option>
+                                <option>Alta</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="mensagem">Mensagem *</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Descreva a situação, local ou sugestão." required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Enviar demanda</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-canvas">
+                <div class="transparency-panel" aria-label="Transparência">
+                    <p><strong>Transparência</strong> — Em breve: prestação de contas mensal, diárias e equipe do gabinete.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="shell">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="demo-badge">Landing page demonstrativa</span>
+                    <p class="footer-title">Lucas Zacarias</p>
+                    <p>Vereador de Santo André · Câmara Municipal de Santo André · contato@lucaszacarias.com.br (em implantação)</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#pautas">Pautas</a></li>
+                        <li><a href="#biografia">Biografia</a></li>
+                        <li><a href="#demandas">Fale comigo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Referências</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.behance.net/gallery/145603497/Presidente-Bolsonaro-Identidade-Visual" target="_blank" rel="noopener noreferrer">
+                                Identidade visual — Behance
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© Lucas Zacarias. Todos os direitos reservados.</p>
+                <p class="footer-credit">
+                    Identidade visual inspirada no estudo
+                    <a href="https://www.behance.net/gallery/145603497/Presidente-Bolsonaro-Identidade-Visual" target="_blank" rel="noopener noreferrer">Presidente Bolsonaro — Identidade Visual</a>
+                    (Vivien Vila Flor / Villen Design), adaptada para o mandato local.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('demandForm');
+        const alertDiv = document.getElementById('formAlert');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const bairro = document.getElementById('bairro').value;
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (!nome || !email || !bairro || !mensagem) {
+                showAlert('Preencha todos os campos obrigatórios.', 'error');
+                return;
+            }
+
+            const dados = {
+                nome: nome,
+                email: email,
+                telefone: document.getElementById('telefone').value,
+                bairro: bairro,
+                tipo: document.getElementById('tipo').value,
+                urgencia: document.getElementById('urgencia').value,
+                mensagem: mensagem,
+                data: new Date().toISOString()
+            };
+
+            console.log('Demanda registrada (modo demonstração):', dados);
+
+            showAlert('Demanda recebida. Em breve a equipe do gabinete entrará em contato. (modo demonstração)', 'success');
+            form.reset();
+            alertDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+
+        function showAlert(message, type) {
+            alertDiv.textContent = message;
+            alertDiv.className = 'alert alert-' + (type === 'success' ? 'success' : 'error');
+            alertDiv.style.display = 'block';
+
+            if (type === 'error') {
+                alertDiv.style.background = '#fde8ea';
+                alertDiv.style.color = '#8a1f2d';
+                alertDiv.style.borderLeft = '4px solid #c62839';
+            } else {
+                alertDiv.style.background = 'rgba(0, 151, 57, 0.1)';
+                alertDiv.style.color = '#006b2a';
+                alertDiv.style.borderLeft = '4px solid #009739';
+            }
+
+            setTimeout(function() {
+                alertDiv.style.opacity = '0';
+                setTimeout(function() {
+                    alertDiv.style.display = 'none';
+                    alertDiv.style.opacity = '1';
+                }, 300);
+            }, 5000);
+        }
+
+        function initLazyMedia() {
+            document.querySelectorAll('img[data-lazy]').forEach(function(image) {
+                function markLoaded() {
+                    image.classList.add('is-loaded');
+                }
+
+                if (image.complete) {
+                    markLoaded();
+                    return;
+                }
+
+                image.addEventListener('load', markLoaded, { once: true });
+                image.addEventListener('error', markLoaded, { once: true });
+            });
+
+            const lazyFrames = document.querySelectorAll('iframe[data-lazy-src]');
+            if (!lazyFrames.length) {
+                return;
+            }
+
+            if (!('IntersectionObserver' in window)) {
+                lazyFrames.forEach(function(frame) {
+                    frame.src = frame.dataset.lazySrc;
+                    frame.removeAttribute('data-lazy-src');
+                });
+                return;
+            }
+
+            const frameObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const frame = entry.target;
+                    frame.src = frame.dataset.lazySrc;
+                    frame.removeAttribute('data-lazy-src');
+                    observer.unobserve(frame);
+                });
+            }, { rootMargin: '240px' });
+
+            lazyFrames.forEach(function(frame) {
+                frameObserver.observe(frame);
+            });
+        }
+
+        initLazyMedia();
+
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
