@@ -265,6 +265,8 @@
         }
 
         .hero-copy {
+            position: relative;
+            z-index: 1;
             max-width: 38rem;
             display: flex;
             flex-direction: column;
@@ -347,37 +349,39 @@
 
         .hero-visual {
             position: relative;
-            min-height: 460px;
+            z-index: 1;
+            min-height: 500px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: clamp(1.5rem, 4vh, 3rem) clamp(0.75rem, 2vw, 1.5rem);
-        }
-
-        .hero-visual-stage {
-            position: relative;
-            width: min(100%, 640px);
-            min-height: 420px;
+            justify-content: flex-end;
+            padding: clamp(1.5rem, 3.5vh, 2.75rem) clamp(1rem, 2vw, 1.5rem);
         }
 
         .hero-flag {
             position: absolute;
             left: 50%;
-            top: 50%;
+            top: 48%;
             z-index: 0;
-            width: min(96%, 540px);
+            width: min(82vw, 760px);
             height: auto;
-            transform: translate(-50%, -50%) rotate(-7deg);
-            opacity: 1;
+            transform: translate(-50%, -50%) rotate(-6deg);
+            opacity: 0.22;
             pointer-events: none;
+        }
+
+        .hero-visual-stage {
+            position: relative;
+            z-index: 1;
+            width: min(100%, 720px);
+            min-height: 500px;
         }
 
         .hero-portrait {
             position: absolute;
-            right: 0;
+            right: clamp(0.5rem, 1.5vw, 1.25rem);
             top: 50%;
             z-index: 1;
-            width: min(78%, 460px);
+            width: min(92%, 640px);
             margin: 0;
             transform: translateY(-50%);
             border-radius: 18px;
@@ -388,7 +392,7 @@
         .hero-portrait img {
             width: 100%;
             height: auto;
-            max-height: min(64vh, 640px);
+            max-height: min(78vh, 800px);
             object-fit: cover;
             object-position: center 12%;
             display: block;
@@ -1090,7 +1094,7 @@
                 width: 100%;
                 max-width: none;
                 margin: 0;
-                grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+                grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
                 gap: clamp(1.5rem, 2.5vw, 3rem);
                 min-height: var(--hero-viewport);
                 align-items: stretch;
@@ -1134,26 +1138,38 @@
                 min-height: 0;
                 height: 100%;
                 align-self: stretch;
-                padding: clamp(2rem, 5vh, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
-            }
-
-            .hero-visual-stage {
-                width: min(100%, 700px);
-                min-height: 460px;
+                align-items: center;
+                justify-content: flex-end;
+                padding: clamp(1.5rem, 3.5vh, 2.75rem) clamp(1.25rem, 2.5vw, 2rem) clamp(1.5rem, 3.5vh, 2.75rem) clamp(0.75rem, 1.5vw, 1.25rem);
             }
 
             .hero-flag {
-                width: min(100%, 600px);
-                top: 50%;
+                width: min(88vw, 820px);
+                top: 46%;
+                opacity: 0.24;
+            }
+
+            .hero-visual-stage {
+                width: 100%;
+                max-width: none;
+                min-height: 0;
+                height: auto;
             }
 
             .hero-portrait {
-                width: min(80%, 500px);
-                right: clamp(0rem, 1vw, 1rem);
+                position: absolute;
+                right: clamp(0.75rem, 2vw, 1.75rem);
+                top: 50%;
+                left: auto;
+                width: min(94%, 100%);
+                max-width: none;
+                transform: translateY(-50%);
             }
 
             .hero-portrait img {
-                max-height: min(68vh, 680px);
+                width: 100%;
+                height: auto;
+                max-height: min(calc(var(--hero-viewport) - clamp(4rem, 8vh, 6.5rem)), 88svh);
             }
         }
 
@@ -1251,6 +1267,11 @@
                 </svg>
             </div>
             <div class="hero-grid">
+                <svg class="hero-flag" viewBox="0 0 900 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="900" height="600" rx="18" fill="#009739"/>
+                    <polygon points="450,90 810,300 450,510 90,300" fill="#ffdf00"/>
+                    <circle cx="450" cy="300" r="118" fill="#002776"/>
+                </svg>
                 <div class="hero-copy">
                     <div class="hero-copy-inner">
                         <p class="hero-role">Mandato ativo 2025-2028</p>
@@ -1271,11 +1292,6 @@
                 </div>
                 <aside class="hero-visual" aria-label="Retrato de Lucas Zacarias">
                     <div class="hero-visual-stage">
-                        <svg class="hero-flag" viewBox="0 0 900 600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="900" height="600" rx="18" fill="#009739"/>
-                            <polygon points="450,90 810,300 450,510 90,300" fill="#ffdf00"/>
-                            <circle cx="450" cy="300" r="118" fill="#002776"/>
-                        </svg>
                         <div class="hero-portrait">
                             <img data-lazy src="assets/images/lucas-zacarias-hero.png" alt="Retrato de Lucas Zacarias, vereador de Santo André." width="960" height="1200" loading="lazy" decoding="async">
                         </div>
