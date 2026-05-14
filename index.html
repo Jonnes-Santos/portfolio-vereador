@@ -850,22 +850,23 @@
 
         .bio-grid {
             display: grid;
-            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-            gap: clamp(2rem, 4vw, 3.5rem);
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: clamp(1.75rem, 3vw, 3rem);
             align-items: start;
         }
 
-        .bio-intro {
-            padding: 0;
-            border-radius: var(--raio);
-            background: linear-gradient(180deg, var(--fundo), var(--branco));
-            border: 1px solid var(--borda);
-            overflow: hidden;
+        .bio-section .section-head {
+            margin-bottom: clamp(1.5rem, 3vw, 2rem);
         }
 
         .bio-photo {
             aspect-ratio: 4 / 5;
+            margin: 0;
+            border-radius: var(--raio);
             overflow: hidden;
+            border: 1px solid var(--borda);
+            box-shadow: var(--sombra-card);
+            background: var(--fundo);
         }
 
         .bio-photo img {
@@ -875,21 +876,10 @@
             object-position: center 20%;
         }
 
-        .bio-intro-copy {
-            padding: 1.5rem;
-        }
-
-        .bio-intro h2 {
-            margin-bottom: 0.7rem;
-        }
-
-        .bio-intro p {
-            color: var(--texto-suave);
-        }
-
         .bio-columns {
             display: grid;
             gap: 2rem;
+            align-self: start;
         }
 
         .bio-block h3 {
@@ -1225,7 +1215,6 @@
 
             .section-canvas .section-title,
             .mandato-band h2,
-            .bio-intro h2,
             .district-panel h3,
             .form-wrap h3 {
                 font-size: var(--title-display-desktop);
@@ -1647,17 +1636,16 @@
         </section>
 
         <section id="biografia" class="section bio-section">
-            <div class="bio-grid section-canvas">
-                <div class="bio-intro">
+            <div class="section-canvas">
+                <div class="section-head">
+                    <span class="eyebrow">Biografia</span>
+                    <h2 class="display section-title">Trajetória, legado e atuação</h2>
+                </div>
+                <div class="bio-grid">
                     <figure class="bio-photo">
                         <img data-lazy src="assets/images/lucas-zacarias-bio.png" alt="Lucas Zacarias em atendimento à população nos bairros de Santo André." width="800" height="1000" loading="lazy" decoding="async">
                     </figure>
-                    <div class="bio-intro-copy">
-                        <span class="eyebrow">Biografia</span>
-                        <h2 class="display section-title">Trajetória, legado e atuação</h2>
-                    </div>
-                </div>
-                <div class="bio-columns">
+                    <div class="bio-columns">
                     <div class="bio-block">
                         <h3>Trajetória política</h3>
                         <p>
