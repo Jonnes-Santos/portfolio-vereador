@@ -971,6 +971,146 @@
             font-size: 1rem;
         }
 
+        .district-lead {
+            margin-bottom: 1.5rem;
+        }
+
+        .district-featured {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .district-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            min-height: 100%;
+            padding: 1.1rem 1.15rem 1.15rem;
+            border-radius: var(--raio-sm);
+            border: 1px solid var(--borda);
+            background: linear-gradient(180deg, var(--branco), rgba(244, 247, 251, 0.92));
+            box-shadow: 0 12px 28px -24px rgba(0, 39, 118, 0.28);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .district-card::before {
+            content: '';
+            width: 52px;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--verde), var(--amarelo), var(--azul));
+        }
+
+        .district-card:hover,
+        .district-card:focus-visible {
+            transform: translateY(-3px);
+            border-color: rgba(0, 39, 118, 0.18);
+            box-shadow: var(--sombra-card);
+            outline: none;
+        }
+
+        .district-card.is-featured {
+            background: linear-gradient(180deg, rgba(232, 240, 251, 0.72), var(--branco));
+        }
+
+        .district-card-zone {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--azul-claro);
+        }
+
+        .district-card-name {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.02rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--azul);
+        }
+
+        .district-card-note {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--texto-suave);
+        }
+
+        .district-more {
+            padding: 1.35rem 1.25rem 1.45rem;
+            border-radius: calc(var(--raio-sm) + 2px);
+            background: linear-gradient(135deg, rgba(232, 240, 251, 0.55), rgba(255, 255, 255, 0.96));
+            border: 1px solid rgba(0, 39, 118, 0.08);
+        }
+
+        .district-more .eyebrow {
+            margin-bottom: 0.65rem;
+        }
+
+        .district-more-title {
+            margin-bottom: 0.45rem;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--azul);
+        }
+
+        .district-more-copy {
+            margin-bottom: 1rem;
+            max-width: 40rem;
+            color: var(--texto-suave);
+            font-size: 0.94rem;
+            line-height: 1.6;
+        }
+
+        .district-chip-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-bottom: 1.15rem;
+        }
+
+        .district-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid var(--borda);
+            background: var(--branco);
+            color: var(--azul);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .district-chip::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--verde), var(--amarelo));
+            flex-shrink: 0;
+        }
+
+        .district-chip:hover,
+        .district-chip:focus-visible {
+            transform: translateY(-1px);
+            border-color: rgba(0, 39, 118, 0.18);
+            box-shadow: 0 10px 24px -20px rgba(0, 39, 118, 0.35);
+            outline: none;
+        }
+
+        .district-cta {
+            width: fit-content;
+        }
+
         .patria-divider {
             width: 88px;
             height: 4px;
@@ -1284,6 +1424,11 @@
             .district-content .patria-divider {
                 margin-left: 0;
                 margin-right: auto;
+            }
+
+            .district-featured {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1rem;
             }
 
             .hero {
@@ -1693,9 +1838,55 @@
                     </figure>
                     <div class="district-content">
                         <h3 id="district-title" class="display section-title">Bairros com atendimento prioritário</h3>
-                        <p class="district-list">Vila Palmares · Centro · Jardim · Utinga · Vila Assunção · Parque das Nações</p>
-                        <div class="patria-divider" aria-hidden="true"></div>
-                        <p class="district-highlight">Destaque para Vila Palmares, base eleitoral e região com demandas ativas.</p>
+                        <p class="section-subtitle district-lead">Selecione um bairro para registrar demanda, solicitar visita ou acompanhar encaminhamentos do gabinete em Santo André.</p>
+                        <div class="district-featured">
+                            <a href="#demandas" class="district-card is-featured" data-bairro-select="Vila Palmares">
+                                <span class="district-card-zone">Zona leste</span>
+                                <span class="district-card-name">Vila Palmares</span>
+                                <span class="district-card-note">Atendimento reforçado e agenda semanal de escuta comunitária.</span>
+                            </a>
+                            <a href="#demandas" class="district-card" data-bairro-select="Centro">
+                                <span class="district-card-zone">Centro</span>
+                                <span class="district-card-name">Centro</span>
+                                <span class="district-card-note">Demandas de mobilidade, comércio local e iluminação pública.</span>
+                            </a>
+                            <a href="#demandas" class="district-card" data-bairro-select="Jardim">
+                                <span class="district-card-zone">Zona norte</span>
+                                <span class="district-card-name">Jardim</span>
+                                <span class="district-card-note">Acompanhamento de obras viárias e melhorias em áreas residenciais.</span>
+                            </a>
+                            <a href="#demandas" class="district-card" data-bairro-select="Utinga">
+                                <span class="district-card-zone">Zona sul</span>
+                                <span class="district-card-name">Utinga</span>
+                                <span class="district-card-note">Prioridade para saúde básica, transporte e segurança cidadã.</span>
+                            </a>
+                            <a href="#demandas" class="district-card" data-bairro-select="Vila Assunção">
+                                <span class="district-card-zone">Zona leste</span>
+                                <span class="district-card-name">Vila Assunção</span>
+                                <span class="district-card-note">Articulação com moradores para projetos de educação e lazer.</span>
+                            </a>
+                            <a href="#demandas" class="district-card" data-bairro-select="Parque das Nações">
+                                <span class="district-card-zone">Zona oeste</span>
+                                <span class="district-card-name">Parque das Nações</span>
+                                <span class="district-card-note">Monitoramento de serviços públicos e revitalização de espaços coletivos.</span>
+                            </a>
+                        </div>
+                        <div class="district-more">
+                            <span class="eyebrow">Amplie o mapa de atendimento</span>
+                            <p class="district-more-title">Outros bairros em Santo André</p>
+                            <p class="district-more-copy">O gabinete também recebe demandas de regiões vizinhas e bairros em expansão. Escolha o seu para abrir o formulário com o bairro já sugerido.</p>
+                            <div class="district-chip-grid">
+                                <a href="#demandas" class="district-chip" data-bairro-select="Campestre">Campestre</a>
+                                <a href="#demandas" class="district-chip" data-bairro-select="Cidade Aventino">Cidade Aventino</a>
+                                <a href="#demandas" class="district-chip" data-bairro-select="Jardim Alvorada">Jardim Alvorada</a>
+                                <a href="#demandas" class="district-chip" data-bairro-select="Jardim Stella">Jardim Stella</a>
+                                <a href="#demandas" class="district-chip" data-bairro-select="Represa da Fazenda">Represa da Fazenda</a>
+                                <a href="#demandas" class="district-chip" data-bairro-select="Rudge Ramos">Rudge Ramos</a>
+                                <a href="#demandas" class="district-chip" data-bairro-select="Vila Linda">Vila Linda</a>
+                                <a href="#demandas" class="district-chip" data-bairro-select="Vila Marina">Vila Marina</a>
+                            </div>
+                            <a href="#demandas" class="btn btn-secondary district-cta">Registrar demanda do seu bairro</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1734,6 +1925,14 @@
                                 <option>Utinga</option>
                                 <option>Vila Assunção</option>
                                 <option>Parque das Nações</option>
+                                <option>Campestre</option>
+                                <option>Cidade Aventino</option>
+                                <option>Jardim Alvorada</option>
+                                <option>Jardim Stella</option>
+                                <option>Represa da Fazenda</option>
+                                <option>Rudge Ramos</option>
+                                <option>Vila Linda</option>
+                                <option>Vila Marina</option>
                                 <option>Outro</option>
                             </select>
                         </div>
@@ -1889,6 +2088,32 @@
             }
 
             return url;
+        }
+
+        function initDistrictSelector() {
+            const bairroSelect = document.getElementById('bairro');
+
+            if (!bairroSelect) {
+                return;
+            }
+
+            document.querySelectorAll('[data-bairro-select]').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    const bairroName = link.dataset.bairroSelect;
+                    let matched = false;
+
+                    Array.prototype.forEach.call(bairroSelect.options, function(option) {
+                        if (option.text === bairroName) {
+                            bairroSelect.value = option.value || option.text;
+                            matched = true;
+                        }
+                    });
+
+                    if (!matched) {
+                        bairroSelect.value = 'Outro';
+                    }
+                });
+            });
         }
 
         function initNewsCarousel() {
@@ -2123,6 +2348,7 @@
             });
         }
 
+        initDistrictSelector();
         initNewsCarousel();
         initVideoCarousel();
         initLazyMedia();
