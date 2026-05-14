@@ -1220,6 +1220,164 @@
             border-left: 4px solid var(--verde);
         }
 
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .donation-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--gutter);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .donation-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .donation-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            border: 0;
+            background: rgba(11, 31, 63, 0.58);
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+        }
+
+        .donation-modal-panel {
+            position: relative;
+            width: min(480px, 100%);
+            max-height: min(92vh, 760px);
+            overflow: auto;
+            padding: clamp(1.35rem, 3vw, 1.75rem);
+            border-radius: calc(var(--raio) + 2px);
+            border: 1px solid var(--borda);
+            background: linear-gradient(180deg, var(--branco), rgba(244, 247, 251, 0.96));
+            box-shadow: var(--sombra);
+        }
+
+        .donation-modal-close {
+            position: absolute;
+            top: 0.9rem;
+            right: 0.9rem;
+            width: 2.25rem;
+            height: 2.25rem;
+            display: grid;
+            place-items: center;
+            border: 0;
+            border-radius: 999px;
+            background: rgba(0, 39, 118, 0.06);
+            color: var(--texto-suave);
+            font-size: 1.35rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .donation-modal-close:hover,
+        .donation-modal-close:focus-visible {
+            background: rgba(0, 39, 118, 0.12);
+            color: var(--azul);
+            outline: none;
+        }
+
+        .donation-modal-head {
+            padding-right: 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .donation-modal-head .eyebrow {
+            margin-bottom: 0.65rem;
+        }
+
+        .donation-modal-title {
+            margin-bottom: 0.55rem;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--azul);
+        }
+
+        .donation-modal-copy {
+            color: var(--texto-suave);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .donation-form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.9rem;
+        }
+
+        .donation-form-grid .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .donation-modal-note {
+            margin-top: 0.85rem;
+            color: var(--texto-suave);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+
+        .donation-modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.15rem;
+        }
+
+        .donation-modal-actions .btn {
+            flex: 1 1 11rem;
+        }
+
+        .donation-modal-dismiss {
+            background: transparent;
+            color: var(--texto-suave);
+            border-color: var(--borda);
+        }
+
+        .donation-modal-dismiss:hover,
+        .donation-modal-dismiss:focus-visible {
+            color: var(--azul);
+            background: var(--branco);
+        }
+
+        .donation-modal-alert {
+            display: none;
+            margin-bottom: 0.9rem;
+            padding: 0.85rem 0.95rem;
+            border-radius: 14px;
+            font-size: 0.9rem;
+        }
+
+        .donation-modal-alert.is-visible {
+            display: block;
+        }
+
+        .donation-modal-alert.is-success {
+            background: rgba(0, 151, 57, 0.1);
+            color: var(--verde-escuro);
+            border-left: 4px solid var(--verde);
+        }
+
+        .donation-modal-alert.is-error {
+            background: #fde8ea;
+            color: #8a1f2d;
+            border-left: 4px solid #c62839;
+        }
+
         .transparency-panel {
             padding: 1.5rem 1.75rem;
             border-radius: var(--raio);
@@ -1573,6 +1731,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .donation-form-grid {
+                grid-template-columns: 1fr;
+            }
+
             .footer-bottom {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1607,7 +1769,7 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="hero">
             <div class="hero-backdrop" aria-hidden="true">
                 <svg class="hero-watermark" viewBox="0 0 320 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M40 180V70h28c18 0 30 9 30 24 0 10-5 18-14 22l19 34h-22l-17-30h-12v30H40zm21-45h6c8 0 13-4 13-11s-5-11-13-11h-6v22z" fill="currentColor"/>
@@ -2014,6 +2176,63 @@
         </div>
     </footer>
 
+    <div id="donation-modal" class="donation-modal" hidden aria-hidden="true">
+        <button type="button" class="donation-modal-backdrop" data-donation-close aria-label="Fechar janela de doações"></button>
+        <div class="donation-modal-panel" role="dialog" aria-modal="true" aria-labelledby="donation-modal-title" aria-describedby="donation-modal-description">
+            <button type="button" class="donation-modal-close" data-donation-close aria-label="Fechar">×</button>
+            <div class="donation-modal-head">
+                <span class="eyebrow">Apoie a campanha</span>
+                <h2 id="donation-modal-title" class="donation-modal-title">Contribua com o mandato</h2>
+                <p id="donation-modal-description" class="donation-modal-copy">Preencha o formulário para manifestar interesse em apoiar a campanha. A equipe entrará em contato com orientações seguras e transparentes.</p>
+            </div>
+            <div id="donationModalAlert" class="donation-modal-alert" role="status" aria-live="polite"></div>
+            <form id="donationForm" class="donation-form">
+                <div class="donation-form-grid">
+                    <div class="form-group full-width">
+                        <label for="donation-nome">Nome completo *</label>
+                        <input type="text" id="donation-nome" name="nome" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="donation-email">E-mail *</label>
+                        <input type="email" id="donation-email" name="email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="donation-telefone">Telefone (WhatsApp)</label>
+                        <input type="tel" id="donation-telefone" name="telefone" autocomplete="tel">
+                    </div>
+                    <div class="form-group">
+                        <label for="donation-valor">Valor pretendido *</label>
+                        <select id="donation-valor" name="valor" required>
+                            <option value="">Selecione</option>
+                            <option value="50">R$ 50</option>
+                            <option value="100">R$ 100</option>
+                            <option value="200">R$ 200</option>
+                            <option value="500">R$ 500</option>
+                            <option value="outro">Outro valor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="donation-forma">Forma de contribuição *</label>
+                        <select id="donation-forma" name="forma" required>
+                            <option value="">Selecione</option>
+                            <option value="pix">PIX</option>
+                            <option value="transferencia">Transferência bancária</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="donation-mensagem">Mensagem</label>
+                        <textarea id="donation-mensagem" name="mensagem" placeholder="Conte como prefere ser contatado ou deixe uma mensagem de apoio."></textarea>
+                    </div>
+                </div>
+                <p class="donation-modal-note">Demonstração institucional: nenhum pagamento é processado nesta página. Em produção, a coleta seguirá as regras do TSE e da legislação eleitoral.</p>
+                <div class="donation-modal-actions">
+                    <button type="submit" class="btn btn-primary">Quero contribuir</button>
+                    <button type="button" class="btn donation-modal-dismiss" data-donation-close>Agora não</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script>
         const form = document.getElementById('demandForm');
         const alertDiv = document.getElementById('formAlert');
@@ -2071,6 +2290,117 @@
                     alertDiv.style.opacity = '1';
                 }, 300);
             }, 5000);
+        }
+
+        function initDonationModal() {
+            const modal = document.getElementById('donation-modal');
+            const hero = document.getElementById('hero');
+            const donationForm = document.getElementById('donationForm');
+            const donationAlert = document.getElementById('donationModalAlert');
+            const storageKey = 'lz-donation-modal-dismissed';
+
+            if (!modal || !hero) {
+                return;
+            }
+
+            let opened = false;
+
+            function showDonationAlert(message, type) {
+                if (!donationAlert) {
+                    return;
+                }
+
+                donationAlert.textContent = message;
+                donationAlert.className = 'donation-modal-alert is-visible is-' + type;
+            }
+
+            function closeDonationModal(persistDismissal) {
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                modal.hidden = true;
+                document.body.classList.remove('modal-open');
+
+                if (persistDismissal) {
+                    sessionStorage.setItem(storageKey, '1');
+                }
+            }
+
+            function openDonationModal() {
+                if (opened || sessionStorage.getItem(storageKey)) {
+                    return;
+                }
+
+                opened = true;
+                modal.hidden = false;
+                modal.setAttribute('aria-hidden', 'false');
+                modal.classList.add('is-open');
+                document.body.classList.add('modal-open');
+
+                const firstField = document.getElementById('donation-nome');
+                if (firstField) {
+                    firstField.focus();
+                }
+            }
+
+            if (!sessionStorage.getItem(storageKey) && 'IntersectionObserver' in window) {
+                const heroObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+                            openDonationModal();
+                            observer.disconnect();
+                        }
+                    });
+                }, { threshold: 0 });
+
+                heroObserver.observe(hero);
+            }
+
+            modal.querySelectorAll('[data-donation-close]').forEach(function(control) {
+                control.addEventListener('click', function() {
+                    closeDonationModal(true);
+                });
+            });
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                    closeDonationModal(true);
+                }
+            });
+
+            if (donationForm) {
+                donationForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const nome = document.getElementById('donation-nome').value.trim();
+                    const email = document.getElementById('donation-email').value.trim();
+                    const valor = document.getElementById('donation-valor').value;
+                    const forma = document.getElementById('donation-forma').value;
+
+                    if (!nome || !email || !valor || !forma) {
+                        showDonationAlert('Preencha os campos obrigatórios para continuar.', 'error');
+                        return;
+                    }
+
+                    const dados = {
+                        nome: nome,
+                        email: email,
+                        telefone: document.getElementById('donation-telefone').value,
+                        valor: valor,
+                        forma: forma,
+                        mensagem: document.getElementById('donation-mensagem').value.trim(),
+                        data: new Date().toISOString()
+                    };
+
+                    console.log('Interesse em doação registrado (modo demonstração):', dados);
+
+                    showDonationAlert('Obrigado pelo apoio. A equipe da campanha entrará em contato em breve. (modo demonstração)', 'success');
+                    donationForm.reset();
+
+                    setTimeout(function() {
+                        closeDonationModal(true);
+                    }, 2200);
+                });
+            }
         }
 
         function toYouTubeEmbed(url) {
@@ -2348,6 +2678,7 @@
             });
         }
 
+        initDonationModal();
         initDistrictSelector();
         initNewsCarousel();
         initVideoCarousel();
