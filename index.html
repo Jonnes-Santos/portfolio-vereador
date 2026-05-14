@@ -852,7 +852,7 @@
             display: grid;
             grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
             gap: clamp(1.75rem, 3vw, 3rem);
-            align-items: start;
+            align-items: stretch;
         }
 
         .bio-section .section-head {
@@ -861,6 +861,8 @@
 
         .bio-photo {
             aspect-ratio: 4 / 5;
+            height: 100%;
+            min-height: 100%;
             margin: 0;
             border-radius: var(--raio);
             overflow: hidden;
@@ -877,27 +879,46 @@
         }
 
         .bio-columns {
-            display: grid;
-            gap: 2rem;
-            align-self: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+            min-height: 100%;
         }
 
         .bio-block h3 {
-            font-size: 0.92rem;
+            font-size: 0.96rem;
             font-weight: 800;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--azul);
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
         }
 
         .bio-block p {
             color: var(--texto-suave);
-            margin-bottom: 1rem;
+            font-size: 1.02rem;
+            line-height: 1.68;
+            margin-bottom: 0.95rem;
+        }
+
+        .bio-block p:last-child {
+            margin-bottom: 0;
         }
 
         .bio-block strong {
             color: var(--texto);
+        }
+
+        .bio-block:last-child {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .bio-block:last-child .stats {
+            margin-top: auto;
+            padding-top: 0.85rem;
         }
 
         .stats {
@@ -1704,6 +1725,11 @@
                 min-height: 360px;
             }
 
+            .bio-columns {
+                min-height: auto;
+                justify-content: flex-start;
+            }
+
             .video-carousel {
                 height: clamp(240px, 42vw, 320px);
             }
@@ -1958,12 +1984,19 @@
                         <p>
                             <strong>Lucas Zacarias</strong> é vereador de Santo André com mandato focado em
                             <strong>mobilidade sustentável, participação popular e transparência</strong>.
-                            Herdeiro de um legado familiar de serviço público, une tradição e inovação.
+                            Herdeiro de um legado familiar de serviço público, une tradição e inovação na defesa
+                            de políticas públicas que aproximam a Câmara da vida real dos bairros.
                         </p>
                         <p>
                             Formado em <strong>Gestão Ambiental</strong> e pós-graduado em <strong>Petróleo e Gás</strong>,
                             traz uma visão técnica para os problemas da cidade. Sua base eleitoral é forte na
-                            <strong>Vila Palmares</strong>, com atuação em toda Santo André.
+                            <strong>Vila Palmares</strong>, com atuação em toda Santo André e presença constante
+                            em reuniões de moradores, audiências públicas e agendas de escuta comunitária.
+                        </p>
+                        <p>
+                            Antes de assumir o segundo mandato, construiu relação de confiança com associações de
+                            bairro, lideranças locais e entidades da sociedade civil, defendendo investimentos em
+                            mobilidade, saúde básica e educação com responsabilidade fiscal e diálogo permanente.
                         </p>
                     </div>
                     <div class="bio-block">
@@ -1971,7 +2004,19 @@
                         <p>
                             Projetos de lei aprovados nas áreas de meio ambiente, incentivo a ciclovias e
                             transparência de gastos públicos. Participa ativamente das comissões de
-                            <strong>Saúde e Educação</strong>.
+                            <strong>Saúde e Educação</strong>, acompanhando metas, emendas e encaminhamentos que
+                            impactam diretamente a rotina das famílias.
+                        </p>
+                        <p>
+                            No legislativo, articula pautas com secretarias municipais, fiscaliza obras e cobra
+                            respostas para demandas registradas pelo gabinete digital. Essa atuação combina
+                            presença em plenário, trabalho técnico em comissões e visitas a unidades de saúde,
+                            escolas e regiões com maior necessidade de investimento.
+                        </p>
+                        <p>
+                            O compromisso com transparência se traduz em relatórios de atividade, retorno à
+                            população e acompanhamento de cada protocolo recebido, reforçando um mandato aberto,
+                            acessível e orientado por resultados concretos para Santo André.
                         </p>
                         <div class="stats">
                             <div class="stat-item">
