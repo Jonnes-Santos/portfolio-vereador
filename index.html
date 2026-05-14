@@ -415,11 +415,18 @@
             line-height: 0.98;
         }
 
-        .video-card {
+        .videos-stage {
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(260px, 0.88fr);
+            gap: clamp(1.25rem, 3vw, 2rem);
+            align-items: start;
             width: 100%;
-            max-width: min(1140px, 100%);
+            max-width: min(1180px, 100%);
             margin: 0 auto;
-            text-align: center;
+        }
+
+        .video-feature {
+            text-align: left;
         }
 
         .video-frame {
@@ -443,13 +450,13 @@
 
         .video-caption {
             margin-top: 1rem;
-            text-align: center;
+            text-align: left;
             color: var(--texto-suave);
         }
 
         .video-link {
             display: inline-flex;
-            margin: 0.85rem auto 0;
+            margin: 0.85rem 0 0;
             font-size: 0.82rem;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -462,6 +469,91 @@
         .video-link:focus-visible {
             text-decoration: underline;
             outline: none;
+        }
+
+        .video-carousel {
+            position: relative;
+            height: clamp(320px, 36vw, 520px);
+            overflow: hidden;
+            border-radius: var(--raio);
+            border: 1px solid var(--borda);
+            background: linear-gradient(180deg, var(--fundo), var(--branco));
+            box-shadow: var(--sombra-card);
+            mask-image: linear-gradient(180deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        }
+
+        .video-carousel-track {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            padding: 0.35rem;
+            animation: video-carousel-scroll 42s linear infinite;
+            will-change: transform;
+        }
+
+        .video-carousel:hover .video-carousel-track,
+        .video-carousel:focus-within .video-carousel-track {
+            animation-play-state: paused;
+        }
+
+        .video-carousel-item {
+            position: relative;
+            flex: 0 0 auto;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            padding: 0;
+            border: 0;
+            border-radius: var(--raio-sm);
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--fundo);
+            box-shadow: 0 10px 24px -18px rgba(0, 39, 118, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .video-carousel-item:hover,
+        .video-carousel-item:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-card);
+            outline: none;
+        }
+
+        .video-carousel-item.is-active {
+            box-shadow: 0 0 0 2px var(--azul-claro);
+        }
+
+        .video-carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-carousel-item span {
+            position: absolute;
+            inset: auto 0 0;
+            padding: 0.65rem 0.75rem;
+            background: linear-gradient(180deg, transparent, rgba(11, 31, 63, 0.82));
+            color: var(--branco);
+            font-size: 0.78rem;
+            font-weight: 600;
+            line-height: 1.35;
+            text-align: left;
+        }
+
+        @keyframes video-carousel-scroll {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .video-carousel-track {
+                animation: none;
+            }
         }
 
         img[data-lazy] {
@@ -1017,7 +1109,7 @@
                 font-size: clamp(3.6rem, 5.2vw, 6rem);
             }
 
-            .video-card {
+            .videos-stage {
                 max-width: min(1180px, 100%);
             }
 
@@ -1178,7 +1270,8 @@
             .mandato-band-grid,
             .bio-grid,
             .pautas-grid,
-            .footer-top {
+            .footer-top,
+            .videos-stage {
                 grid-template-columns: 1fr;
             }
 
@@ -1194,6 +1287,10 @@
 
             .hero-visual {
                 min-height: 360px;
+            }
+
+            .video-carousel {
+                height: clamp(280px, 48vw, 380px);
             }
         }
 
@@ -1307,18 +1404,24 @@
                     <h2 id="videos-title" class="display section-title">Vídeos</h2>
                     <p class="section-subtitle">Vídeo de apresentação do mandato e da atuação legislativa.</p>
                 </div>
-                <div class="video-card">
-                    <div class="video-frame">
-                        <iframe
-                            data-lazy-src="https://www.youtube.com/watch?v=8Iw8_UZ2A5g"
-                            title="Vídeo de apresentação do mandato"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen
-                            loading="lazy"
-                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                <div class="videos-stage">
+                    <div class="video-feature">
+                        <div class="video-frame">
+                            <iframe
+                                id="video-main"
+                                data-lazy-src="https://www.youtube.com/embed/8Iw8_UZ2A5g?rel=0"
+                                title="Vídeo de apresentação do mandato"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                        <p class="video-caption" id="video-caption">Vídeo de apresentação do mandato.</p>
+                        <a class="video-link" id="video-external-link" href="https://www.youtube.com/watch?v=8Iw8_UZ2A5g" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>
                     </div>
-                    <p class="video-caption">Vídeo de apresentação do mandato.</p>
-                    <a class="video-link" href="https://www.youtube.com/watch?v=ysz5S6PUM-U" target="_blank" rel="noopener noreferrer">Abrir no YouTube</a>
+                    <aside class="video-carousel" aria-label="Outros vídeos do mandato">
+                        <div class="video-carousel-track" id="video-carousel-track"></div>
+                    </aside>
                 </div>
             </div>
         </section>
@@ -1647,6 +1750,99 @@
             }, 5000);
         }
 
+        function toYouTubeEmbed(url) {
+            if (!url) {
+                return url;
+            }
+
+            if (url.indexOf('/embed/') !== -1) {
+                return url;
+            }
+
+            const match = url.match(/[?&]v=([^&]+)/);
+            if (match) {
+                return 'https://www.youtube.com/embed/' + match[1] + '?rel=0';
+            }
+
+            return url;
+        }
+
+        function initVideoCarousel() {
+            const mainFrame = document.getElementById('video-main');
+            const caption = document.getElementById('video-caption');
+            const externalLink = document.getElementById('video-external-link');
+            const track = document.getElementById('video-carousel-track');
+
+            if (!mainFrame || !track) {
+                return;
+            }
+
+            const carouselVideos = [
+                { id: 'ysz5S6PUM-U', title: 'Atuação na sessão legislativa' },
+                { id: 'LXb3EKWsInQ', title: 'Prioridades do mandato para a cidade' },
+                { id: 'o-yXG8sQZas', title: 'Visita técnica a bairros da região' },
+                { id: 'FtutLA30kp8', title: 'Audiência pública com moradores' },
+                { id: 'fJ9rUzIMcZQ', title: 'Ação legislativa pela mobilidade urbana' },
+                { id: 'ZY3yuh3a9lU', title: 'Educação e cultura no território' },
+                { id: 'nO1Uufq4bXI', title: 'Cuidado com saúde básica e UBS' },
+                { id: 'IAc4yg5wTH0', title: 'Segurança e participação comunitária' }
+            ];
+
+            function createCarouselItem(video) {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'video-carousel-item';
+                button.dataset.videoId = video.id;
+                button.setAttribute('aria-label', 'Assistir: ' + video.title);
+                button.innerHTML = '<img src="https://i.ytimg.com/vi/' + video.id + '/hqdefault.jpg" alt="" loading="lazy" decoding="async"><span>' + video.title + '</span>';
+                return button;
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            carouselVideos.forEach(function(video) {
+                fragment.appendChild(createCarouselItem(video));
+            });
+
+            carouselVideos.forEach(function(video) {
+                fragment.appendChild(createCarouselItem(video));
+            });
+
+            track.appendChild(fragment);
+
+            function setMainVideo(video) {
+                mainFrame.src = 'https://www.youtube.com/embed/' + video.id + '?rel=0&autoplay=1';
+                mainFrame.title = video.title;
+
+                if (caption) {
+                    caption.textContent = video.title;
+                }
+
+                if (externalLink) {
+                    externalLink.href = 'https://www.youtube.com/watch?v=' + video.id;
+                }
+
+                track.querySelectorAll('.video-carousel-item').forEach(function(item) {
+                    item.classList.toggle('is-active', item.dataset.videoId === video.id);
+                });
+            }
+
+            track.addEventListener('click', function(event) {
+                const item = event.target.closest('.video-carousel-item');
+                if (!item) {
+                    return;
+                }
+
+                const video = carouselVideos.find(function(entry) {
+                    return entry.id === item.dataset.videoId;
+                });
+
+                if (video) {
+                    setMainVideo(video);
+                }
+            });
+        }
+
         function initLazyMedia() {
             document.querySelectorAll('img[data-lazy]').forEach(function(image) {
                 function markLoaded() {
@@ -1669,7 +1865,7 @@
 
             if (!('IntersectionObserver' in window)) {
                 lazyFrames.forEach(function(frame) {
-                    frame.src = frame.dataset.lazySrc;
+                    frame.src = toYouTubeEmbed(frame.dataset.lazySrc);
                     frame.removeAttribute('data-lazy-src');
                 });
                 return;
@@ -1682,7 +1878,7 @@
                     }
 
                     const frame = entry.target;
-                    frame.src = frame.dataset.lazySrc;
+                    frame.src = toYouTubeEmbed(frame.dataset.lazySrc);
                     frame.removeAttribute('data-lazy-src');
                     observer.unobserve(frame);
                 });
@@ -1693,6 +1889,7 @@
             });
         }
 
+        initVideoCarousel();
         initLazyMedia();
 
         document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
