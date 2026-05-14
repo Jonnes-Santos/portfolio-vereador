@@ -405,6 +405,140 @@
             padding-inline: var(--gutter);
         }
 
+        .news-section {
+            padding: clamp(2.5rem, 5vw, 4rem) 0;
+            background: var(--fundo);
+            border-bottom: 1px solid var(--borda);
+        }
+
+        .news-section .section-head {
+            margin-bottom: 2rem;
+        }
+
+        .news-section .section-title {
+            font-size: var(--title-display);
+            line-height: 0.98;
+        }
+
+        .news-carousel {
+            position: relative;
+            overflow: hidden;
+            padding: 0.35rem 0;
+            mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+        }
+
+        .news-carousel-track {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            gap: 1rem;
+            width: max-content;
+            padding-inline: var(--gutter);
+            animation: news-carousel-scroll 56s linear infinite;
+            will-change: transform;
+        }
+
+        .news-carousel:hover .news-carousel-track,
+        .news-carousel:focus-within .news-carousel-track {
+            animation-play-state: paused;
+        }
+
+        .news-carousel-item {
+            flex: 0 0 auto;
+            width: min(320px, 78vw);
+        }
+
+        .news-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-radius: var(--raio);
+            overflow: hidden;
+            background: var(--branco);
+            border: 1px solid var(--borda);
+            box-shadow: var(--sombra-card);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .news-card:hover,
+        .news-card:focus-visible {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra);
+            outline: none;
+        }
+
+        .news-card-media {
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .news-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+
+        .news-card:hover .news-card-media img,
+        .news-card:focus-visible .news-card-media img {
+            transform: scale(1.04);
+        }
+
+        .news-card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            padding: 1.1rem 1.2rem 1.25rem;
+        }
+
+        .news-card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--texto-suave);
+        }
+
+        .news-card-tag {
+            color: var(--azul-claro);
+        }
+
+        .news-card-title {
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--azul);
+        }
+
+        .news-card-excerpt {
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: var(--texto-suave);
+        }
+
+        @keyframes news-carousel-scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .news-carousel-track {
+                animation: none;
+            }
+        }
+
         .videos-section {
             background: var(--branco);
             border-bottom: 1px solid var(--borda);
@@ -417,11 +551,11 @@
 
         .videos-stage {
             display: grid;
-            grid-template-columns: minmax(0, 1.12fr) minmax(260px, 0.88fr);
+            grid-template-columns: minmax(0, 1.28fr) minmax(200px, 0.72fr);
             gap: clamp(1.25rem, 3vw, 2rem);
             align-items: start;
             width: 100%;
-            max-width: min(1180px, 100%);
+            max-width: min(1240px, 100%);
             margin: 0 auto;
         }
 
@@ -473,7 +607,7 @@
 
         .video-carousel {
             position: relative;
-            height: clamp(320px, 36vw, 520px);
+            height: clamp(280px, 30vw, 440px);
             overflow: hidden;
             border-radius: var(--raio);
             border: 1px solid var(--borda);
@@ -485,8 +619,8 @@
         .video-carousel-track {
             display: flex;
             flex-direction: column;
-            gap: 0.9rem;
-            padding: 0.35rem;
+            gap: 0.65rem;
+            padding: 0.3rem;
             animation: video-carousel-scroll 42s linear infinite;
             will-change: transform;
         }
@@ -531,12 +665,12 @@
         .video-carousel-item span {
             position: absolute;
             inset: auto 0 0;
-            padding: 0.65rem 0.75rem;
+            padding: 0.5rem 0.65rem;
             background: linear-gradient(180deg, transparent, rgba(11, 31, 63, 0.82));
             color: var(--branco);
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 600;
-            line-height: 1.35;
+            line-height: 1.3;
             text-align: left;
         }
 
@@ -1105,12 +1239,17 @@
                 font-size: var(--title-display-desktop);
             }
 
+            .news-section .section-title {
+                font-size: var(--title-display-desktop);
+            }
+
             .videos-section .section-title {
                 font-size: clamp(3.6rem, 5.2vw, 6rem);
             }
 
             .videos-stage {
-                max-width: min(1180px, 100%);
+                max-width: min(1240px, 100%);
+                grid-template-columns: minmax(0, 1.32fr) minmax(210px, 0.68fr);
             }
 
             .mandato-band-grid {
@@ -1290,7 +1429,7 @@
             }
 
             .video-carousel {
-                height: clamp(280px, 48vw, 380px);
+                height: clamp(240px, 42vw, 320px);
             }
         }
 
@@ -1394,6 +1533,19 @@
                         </div>
                     </div>
                 </aside>
+            </div>
+        </section>
+
+        <section id="noticias" class="section news-section" aria-labelledby="noticias-title">
+            <div class="shell">
+                <div class="section-head">
+                    <span class="eyebrow">Acompanhe o mandato</span>
+                    <h2 id="noticias-title" class="display section-title">Notícias em Destaque</h2>
+                    <p class="section-subtitle">Atualizações fictícias sobre atuação legislativa, obras e atendimento à população em Santo André.</p>
+                </div>
+            </div>
+            <div class="news-carousel" aria-label="Carrossel de notícias em destaque">
+                <div class="news-carousel-track" id="news-carousel-track"></div>
             </div>
         </section>
 
@@ -1767,6 +1919,116 @@
             return url;
         }
 
+        function initNewsCarousel() {
+            const track = document.getElementById('news-carousel-track');
+
+            if (!track) {
+                return;
+            }
+
+            const newsItems = [
+                {
+                    category: 'Mobilidade',
+                    date: '12 mai. 2026',
+                    datetime: '2026-05-12',
+                    title: 'Nova ciclovia entra em fase de vistoria no ABC',
+                    excerpt: 'O trecho entre a estação de trem e a avenida central deve ganhar sinalização neste semestre.',
+                    image: 'assets/images/pauta-mobilidade.png',
+                    alt: 'Ciclovia urbana em Santo André.'
+                },
+                {
+                    category: 'Saúde',
+                    date: '10 mai. 2026',
+                    datetime: '2026-05-10',
+                    title: 'UBS do Jardim recebe reforço no atendimento de enfermagem',
+                    excerpt: 'A unidade ampliou o horário de acolhimento e reduziu o tempo de espera para consultas básicas.',
+                    image: 'assets/images/pauta-saude.png',
+                    alt: 'Unidade básica de saúde com atendimento à população.'
+                },
+                {
+                    category: 'Educação',
+                    date: '08 mai. 2026',
+                    datetime: '2026-05-08',
+                    title: 'Escola municipal inicia projeto de tempo integral',
+                    excerpt: 'A proposta prevê reforço em leitura, esportes e atividades culturais para estudantes do ensino fundamental.',
+                    image: 'assets/images/pauta-educacao.png',
+                    alt: 'Sala de aula moderna representando educação de qualidade.'
+                },
+                {
+                    category: 'Segurança',
+                    date: '06 mai. 2026',
+                    datetime: '2026-05-06',
+                    title: 'Iluminação pública é ampliada em vias residenciais',
+                    excerpt: 'Moradores relataram mais sensação de segurança após a troca de luminárias em quatro quadras da região.',
+                    image: 'assets/images/pauta-seguranca.png',
+                    alt: 'Rua residencial bem iluminada representando segurança cidadã.'
+                },
+                {
+                    category: 'Transparência',
+                    date: '04 mai. 2026',
+                    datetime: '2026-05-04',
+                    title: 'Portal do mandato publica relatório mensal de demandas',
+                    excerpt: 'O documento reúne protocolos recebidos, encaminhamentos feitos e prazos de resposta aos moradores.',
+                    image: 'assets/images/lucas-zacarias-bio.png',
+                    alt: 'Lucas Zacarias em atendimento à população nos bairros de Santo André.'
+                },
+                {
+                    category: 'Bairros',
+                    date: '02 mai. 2026',
+                    datetime: '2026-05-02',
+                    title: 'Atendimento itinerante percorre bairros da zona leste',
+                    excerpt: 'A agenda semanal leva o gabinete para ouvir moradores sobre transporte, limpeza urbana e obras locais.',
+                    image: 'assets/images/bairros-santo-andre.png',
+                    alt: 'Vista aérea de bairros de Santo André com atendimento prioritário.'
+                },
+                {
+                    category: 'Orçamento',
+                    date: '30 abr. 2026',
+                    datetime: '2026-04-30',
+                    title: 'Emenda destina recursos para revitalização de praças',
+                    excerpt: 'Os investimentos incluem acessibilidade, novos mobiliários urbanos e áreas de convivência para famílias.',
+                    image: 'assets/images/pauta-mobilidade.png',
+                    alt: 'Espaço urbano revitalizado em Santo André.'
+                },
+                {
+                    category: 'Transporte',
+                    date: '28 abr. 2026',
+                    datetime: '2026-04-28',
+                    title: 'Integração com trens ganha reforço no horário de pico',
+                    excerpt: 'A articulação com operadoras busca reduzir atrasos e melhorar a conexão entre bairros e estações.',
+                    image: 'assets/images/pauta-educacao.png',
+                    alt: 'Fluxo de transporte público na região do ABC.'
+                }
+            ];
+
+            function createNewsItem(item) {
+                const article = document.createElement('article');
+                article.className = 'news-carousel-item';
+                article.innerHTML =
+                    '<a href="#noticias" class="news-card">' +
+                        '<figure class="news-card-media"><img src="' + item.image + '" alt="' + item.alt + '" loading="lazy" decoding="async"></figure>' +
+                        '<div class="news-card-body">' +
+                            '<div class="news-card-meta"><time datetime="' + item.datetime + '">' + item.date + '</time><span class="news-card-tag">' + item.category + '</span></div>' +
+                            '<h3 class="news-card-title">' + item.title + '</h3>' +
+                            '<p class="news-card-excerpt">' + item.excerpt + '</p>' +
+                        '</div>' +
+                    '</a>';
+                return article;
+            }
+
+            const fragment = document.createDocumentFragment();
+
+            newsItems.forEach(function(item) {
+                fragment.appendChild(createNewsItem(item));
+            });
+
+            newsItems.forEach(function(item) {
+                fragment.appendChild(createNewsItem(item));
+            });
+
+            track.appendChild(fragment);
+        }
+
         function initVideoCarousel() {
             const mainFrame = document.getElementById('video-main');
             const caption = document.getElementById('video-caption');
@@ -1889,6 +2151,7 @@
             });
         }
 
+        initNewsCarousel();
         initVideoCarousel();
         initLazyMedia();
 
