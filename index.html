@@ -232,6 +232,68 @@
             margin-left: 0.35rem;
         }
 
+        .nav-toggle {
+            display: none;
+            position: relative;
+            flex-shrink: 0;
+            width: 2.85rem;
+            height: 2.85rem;
+            border: 1px solid var(--borda);
+            border-radius: 12px;
+            background: var(--branco);
+            color: var(--azul);
+            cursor: pointer;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .nav-toggle:hover,
+        .nav-toggle:focus-visible {
+            border-color: rgba(0, 39, 118, 0.18);
+            box-shadow: var(--sombra-card);
+            outline: none;
+        }
+
+        .nav-toggle-bar,
+        .nav-toggle-bar::before,
+        .nav-toggle-bar::after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 1.1rem;
+            height: 2px;
+            border-radius: 999px;
+            background: currentColor;
+            transform: translateX(-50%);
+            transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+        }
+
+        .nav-toggle-bar::before,
+        .nav-toggle-bar::after {
+            content: '';
+        }
+
+        .nav-toggle-bar::before {
+            top: calc(50% - 6px);
+        }
+
+        .nav-toggle-bar::after {
+            top: calc(50% + 6px);
+        }
+
+        .site-header.is-nav-open .nav-toggle-bar {
+            background: transparent;
+        }
+
+        .site-header.is-nav-open .nav-toggle-bar::before {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        .site-header.is-nav-open .nav-toggle-bar::after {
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
         .hero {
             position: relative;
             padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem);
@@ -1702,6 +1764,53 @@
         }
 
         @media (max-width: 1024px) {
+            .nav-toggle {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .site-header-inner {
+                position: relative;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+                padding-block: 0.85rem;
+                min-height: 72px;
+            }
+
+            .site-nav {
+                display: none;
+                position: absolute;
+                top: calc(100% + 1px);
+                left: 0;
+                right: 0;
+                z-index: 5;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.35rem;
+                padding: 0.85rem var(--gutter) 1rem;
+                background: rgba(255, 255, 255, 0.98);
+                border-bottom: 1px solid var(--borda);
+                box-shadow: var(--sombra-card);
+            }
+
+            .site-header.is-nav-open .site-nav {
+                display: flex;
+            }
+
+            .site-nav a {
+                width: 100%;
+                padding: 0.8rem 0.95rem;
+                border-radius: var(--raio-sm);
+            }
+
+            .site-nav .btn {
+                margin: 0.35rem 0 0;
+                width: 100%;
+            }
+
             .hero-grid,
             .mandato-band-grid,
             .bio-grid,
@@ -1716,13 +1825,63 @@
                 margin-inline: auto;
             }
 
-            .section-canvas {
+            .section-canvas,
+            .news-section .shell,
+            .videos-section .shell {
                 width: min(var(--largura), calc(100% - (var(--gutter) * 2)));
                 margin-inline: auto;
+                padding-inline: 0;
+            }
+
+            .section-head,
+            .section-canvas .section-head,
+            .news-section .section-head,
+            .videos-section .section-head,
+            .bio-section .section-head {
+                max-width: none;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+
+            .section-subtitle,
+            .district-lead,
+            .form-intro,
+            .district-more-copy {
+                max-width: none;
+            }
+
+            .hero {
+                padding-top: clamp(2rem, 6vw, 3rem);
             }
 
             .hero-visual {
-                min-height: 360px;
+                min-height: auto;
+                justify-content: center;
+                padding: 0 clamp(0.25rem, 2vw, 0.75rem) clamp(1.5rem, 4vw, 2rem);
+            }
+
+            .hero-visual-stage {
+                width: 100%;
+                min-height: auto;
+            }
+
+            .hero-portrait {
+                position: relative;
+                right: auto;
+                top: auto;
+                width: min(100%, 420px);
+                margin: 0 auto;
+                transform: none;
+            }
+
+            .hero-portrait img {
+                max-height: min(62vh, 520px);
+            }
+
+            .hero-flag {
+                width: min(92vw, 560px);
+                top: 42%;
+                opacity: 0.18;
             }
 
             .bio-columns {
@@ -1730,30 +1889,50 @@
                 justify-content: flex-start;
             }
 
+            .bio-photo {
+                height: auto;
+                min-height: 0;
+            }
+
+            .pautas-grid {
+                gap: 1rem;
+            }
+
+            .district-featured {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
             .video-carousel {
                 height: clamp(240px, 42vw, 320px);
+            }
+
+            .videos-stage {
+                gap: 1.25rem;
+            }
+
+            .mandato-band-grid {
+                gap: 1.5rem;
+            }
+
+            .mandato-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .form-actions {
+                text-align: left;
+            }
+
+            .donation-modal-panel {
+                width: min(480px, 100%);
             }
         }
 
         @media (max-width: 768px) {
-            .site-header-inner {
-                flex-direction: column;
-                justify-content: center;
-                padding-block: 1rem;
-                min-height: auto;
-            }
-
-            .site-nav {
-                justify-content: center;
-            }
-
-            .site-nav .btn {
-                margin-left: 0;
-            }
-
             .mandato-list,
             .form-grid,
-            .stats {
+            .stats,
+            .pautas-grid,
+            .district-featured {
                 grid-template-columns: 1fr;
             }
 
@@ -1761,9 +1940,70 @@
                 grid-template-columns: 1fr;
             }
 
+            .hero-name {
+                font-size: clamp(2.15rem, 9vw, 2.85rem);
+            }
+
+            .hero-quote {
+                font-size: 0.98rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .section {
+                padding: clamp(2.25rem, 7vw, 3.5rem) 0;
+            }
+
+            .district-content {
+                padding: 1.25rem;
+            }
+
+            .district-more {
+                padding: 1.15rem;
+            }
+
+            .district-cta,
+            .donation-modal-actions .btn {
+                width: 100%;
+            }
+
+            .donation-modal-actions {
+                flex-direction: column;
+            }
+
             .footer-bottom {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-name {
+                font-size: 0.82rem;
+            }
+
+            .brand-role {
+                font-size: 0.62rem;
+            }
+
+            .isotipo {
+                width: 42px;
+                height: 42px;
+            }
+
+            .news-carousel-item {
+                width: min(280px, 84vw);
+            }
+
+            .district-visual {
+                aspect-ratio: 16 / 10;
             }
         }
     </style>
@@ -1785,7 +2025,10 @@
                     <span class="brand-role">Vereador de Santo André</span>
                 </span>
             </a>
-            <nav class="site-nav" aria-label="Navegação principal">
+            <button type="button" class="nav-toggle" id="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Abrir menu de navegação">
+                <span class="nav-toggle-bar" aria-hidden="true"></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
                 <a href="#">Início</a>
                 <a href="#pautas">Pautas</a>
                 <a href="#biografia">Biografia</a>
@@ -2719,6 +2962,48 @@
             });
         }
 
+        function initMobileNav() {
+            const header = document.querySelector('.site-header');
+            const toggle = document.getElementById('nav-toggle');
+            const nav = document.getElementById('site-nav');
+
+            if (!header || !toggle || !nav) {
+                return;
+            }
+
+            function setNavOpen(isOpen) {
+                header.classList.toggle('is-nav-open', isOpen);
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                toggle.setAttribute('aria-label', isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+                document.body.classList.toggle('nav-open', isOpen);
+            }
+
+            function closeNav() {
+                setNavOpen(false);
+            }
+
+            toggle.addEventListener('click', function() {
+                setNavOpen(!header.classList.contains('is-nav-open'));
+            });
+
+            nav.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', closeNav);
+            });
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeNav();
+                }
+            });
+
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 1024) {
+                    closeNav();
+                }
+            });
+        }
+
+        initMobileNav();
         initDonationModal();
         initDistrictSelector();
         initNewsCarousel();
