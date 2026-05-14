@@ -31,8 +31,8 @@
             --header-height: 84px;
             --patria-height: 4px;
             --hero-viewport: calc(100svh - var(--header-height) - var(--patria-height));
-            --title-display: clamp(2.8rem, 5vw, 4.4rem);
-            --title-display-desktop: clamp(3.6rem, 5.2vw, 6rem);
+            --title-display: clamp(1.95rem, 3vw, 2.6rem);
+            --title-display-desktop: clamp(2.1rem, 2.6vw, 2.85rem);
             --section-edge: clamp(2rem, 4.5vw, 5rem);
         }
 
@@ -79,7 +79,7 @@
             font-family: 'Libre Baskerville', Georgia, serif;
             font-weight: 700;
             letter-spacing: -0.02em;
-            line-height: 1.05;
+            line-height: 1.12;
         }
 
         .eyebrow {
@@ -291,11 +291,11 @@
         }
 
         .hero-name {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.65rem;
             font-family: 'Libre Baskerville', Georgia, serif;
-            font-size: clamp(3.4rem, 6.2vw, 5.8rem);
+            font-size: clamp(2.45rem, 4.6vw, 3.85rem);
             font-weight: 700;
-            line-height: 0.92;
+            line-height: 1.08;
             letter-spacing: -0.02em;
         }
 
@@ -412,12 +412,7 @@
         }
 
         .news-section .section-head {
-            margin-bottom: 2rem;
-        }
-
-        .news-section .section-title {
-            font-size: var(--title-display);
-            line-height: 0.98;
+            margin-bottom: 1.75rem;
         }
 
         .news-carousel {
@@ -542,11 +537,6 @@
         .videos-section {
             background: var(--branco);
             border-bottom: 1px solid var(--borda);
-        }
-
-        .videos-section .section-title {
-            font-size: clamp(2.8rem, 5vw, 4.4rem);
-            line-height: 0.98;
         }
 
         .videos-stage {
@@ -713,9 +703,11 @@
         }
 
         .mandato-band h2 {
-            font-size: var(--title-display);
-            line-height: 0.98;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .mandato-band .section-title {
+            color: var(--branco);
         }
 
         .mandato-band p {
@@ -757,26 +749,27 @@
         }
 
         .section-head {
-            max-width: 42rem;
-            margin: 0 auto 2.75rem;
-            text-align: center;
+            max-width: 36rem;
+            margin: 0 0 2rem;
+            text-align: left;
         }
 
         .section-head .eyebrow {
-            justify-content: center;
-            margin-bottom: 0.9rem;
+            justify-content: flex-start;
+            margin-bottom: 0.7rem;
         }
 
         .section-title {
             font-size: var(--title-display);
-            line-height: 0.98;
+            line-height: 1.12;
             color: var(--azul);
-            margin-bottom: 0.85rem;
+            margin-bottom: 0.7rem;
         }
 
         .section-subtitle {
             color: var(--texto-suave);
             font-size: 1rem;
+            max-width: 34rem;
         }
 
         .pautas-grid {
@@ -887,10 +880,7 @@
         }
 
         .bio-intro h2 {
-            font-size: var(--title-display);
-            line-height: 0.98;
-            color: var(--azul);
-            margin-bottom: 0.85rem;
+            margin-bottom: 0.7rem;
         }
 
         .bio-intro p {
@@ -962,7 +952,7 @@
             background: var(--branco);
             border: 1px solid var(--borda);
             box-shadow: var(--sombra-card);
-            text-align: center;
+            text-align: left;
             overflow: hidden;
         }
 
@@ -982,10 +972,7 @@
         }
 
         .district-panel h3 {
-            font-size: var(--title-display);
-            line-height: 0.98;
-            color: var(--azul);
-            margin-bottom: 0.85rem;
+            margin-bottom: 0.7rem;
         }
 
         .district-list {
@@ -997,7 +984,7 @@
         .patria-divider {
             width: 88px;
             height: 4px;
-            margin: 0 auto 1.25rem;
+            margin: 0 0 1.25rem;
             border-radius: 999px;
             background: linear-gradient(90deg, var(--verde), var(--amarelo), var(--azul));
         }
@@ -1023,17 +1010,15 @@
         }
 
         .form-wrap h3 {
-            font-size: var(--title-display);
-            line-height: 0.98;
-            color: var(--azul);
-            text-align: center;
-            margin-bottom: 0.75rem;
+            text-align: left;
+            margin-bottom: 0.7rem;
         }
 
         .form-intro {
-            text-align: center;
+            text-align: left;
             color: var(--texto-suave);
             margin-bottom: 2rem;
+            max-width: 34rem;
         }
 
         .form-grid {
@@ -1221,9 +1206,16 @@
                 padding-right: var(--section-edge);
             }
 
+            .news-section .shell,
+            .videos-section .shell {
+                width: 100%;
+                max-width: none;
+                padding-inline: var(--section-edge);
+            }
+
             .section-canvas .section-head {
-                max-width: min(48rem, 52%);
-                margin: 0 0 2.75rem;
+                max-width: min(34rem, 44%);
+                margin: 0 0 2rem;
                 text-align: left;
             }
 
@@ -1237,14 +1229,6 @@
             .district-panel h3,
             .form-wrap h3 {
                 font-size: var(--title-display-desktop);
-            }
-
-            .news-section .section-title {
-                font-size: var(--title-display-desktop);
-            }
-
-            .videos-section .section-title {
-                font-size: clamp(3.6rem, 5.2vw, 6rem);
             }
 
             .videos-stage {
@@ -1301,7 +1285,7 @@
             }
 
             .form-intro {
-                max-width: 42rem;
+                max-width: 34rem;
             }
 
             .district-content {
@@ -1350,8 +1334,8 @@
             }
 
             .hero-name {
-                font-size: clamp(4.2rem, 6.4vw, 7rem);
-                margin-bottom: 1.25rem;
+                font-size: clamp(2.75rem, 4.1vw, 4.1rem);
+                margin-bottom: 0.85rem;
             }
 
             .hero-quote {
